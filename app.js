@@ -1,10 +1,8 @@
 // app.js
 
-// Referencia al formulario y lista de horarios
 const reservationForm = document.getElementById('reservation-form');
 const scheduleList = document.getElementById('schedule-list');
 
-// Escuchar el evento de envío del formulario
 reservationForm.addEventListener('submit', function(event) {
     event.preventDefault();
     
@@ -14,7 +12,6 @@ reservationForm.addEventListener('submit', function(event) {
     const date = event.target.date.value;
     const time = event.target.time.value;
 
-    // Verificar si el horario ya está reservado
     db.collection('reservations')
       .where('date', '==', date)
       .where('time', '==', time)
@@ -23,7 +20,6 @@ reservationForm.addEventListener('submit', function(event) {
           if (!snapshot.empty) {
               alert('Este horario ya está reservado. Por favor, elija otro.');
           } else {
-              // Agregar la nueva reserva a la base de datos
               db.collection('reservations').add({
                   name,
                   email,
@@ -33,7 +29,7 @@ reservationForm.addEventListener('submit', function(event) {
               }).then(() => {
                   alert('Reserva realizada con éxito.');
                   reservationForm.reset();
-                  loadSchedule(date);  // Actualizar la lista de horarios
+                  loadSchedule(date);
               }).catch(error => {
                   console.error('Error al realizar la reserva: ', error);
               });
@@ -41,7 +37,6 @@ reservationForm.addEventListener('submit', function(event) {
       });
 });
 
-// Cargar la lista de horarios para una fecha dada
 function loadSchedule(date) {
     scheduleList.innerHTML = '';
     
@@ -63,7 +58,6 @@ function loadSchedule(date) {
       });
 }
 
-// Escuchar el evento de cambio de fecha
 document.getElementById('date').addEventListener('change', function(event) {
     const date = event.target.value;
     loadSchedule(date);
