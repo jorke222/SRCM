@@ -1,12 +1,11 @@
 // firebase-config.js
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_AUTH_DOMAIN",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_STORAGE_BUCKET",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID",
-    measurementId: "YOUR_MEASUREMENT_ID"
+  apiKey: "AIzaSyBjXLpAO2FIk6aJR-bhNAyXMLYSD20xUBY",
+  authDomain: "srcm-2e013.firebaseapp.com",
+  projectId: "srcm-2e013",
+  storageBucket: "srcm-2e013.appspot.com",
+  messagingSenderId: "263204066963",
+  appId: "1:263204066963:web:469fbb319d63f751ef5f66",
 };
 
 firebase.initializeApp(firebaseConfig);
